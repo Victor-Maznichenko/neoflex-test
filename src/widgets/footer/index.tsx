@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Logo } from '@/shared/ui';
 import { FOOTER_LINKS, SOCIAL_LINKS } from './lib';
 import styles from './styles.module.scss';
@@ -6,9 +7,9 @@ const renderNavLinks = () => (
   <nav className={styles.footer__nav}>
     {FOOTER_LINKS.map(({ id, list }) => (
       <ul key={id}>
-        {list.map(({ text, href }) => (
-          <li className={styles.footer__listItem} key={href}>
-            <a href={href}>{text}</a>
+        {list.map(({ text, path }) => (
+          <li className={styles.footer__listItem} key={path}>
+            <Link to={path}>{text}</Link>
           </li>
         ))}
       </ul>

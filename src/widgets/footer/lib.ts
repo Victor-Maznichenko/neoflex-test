@@ -1,19 +1,20 @@
 import { Icons } from '@/shared/ui';
+import { ROUTES } from '@/shared/lib';
 
 export const FOOTER_LINKS = [
   {
     id: 0,
     list: [
       {
-        href: '/favorite',
+        path: ROUTES.NotFound,
         text: 'Избранное',
       },
       {
-        href: '/cart',
+        path: ROUTES.Cart,
         text: 'Корзина',
       },
       {
-        href: '/contacts',
+        path: ROUTES.NotFound,
         text: 'Контакты',
       },
     ],
@@ -22,7 +23,7 @@ export const FOOTER_LINKS = [
     id: 1,
     list: [
       {
-        href: '/terms',
+        path: ROUTES.NotFound,
         text: 'Условия сервиса',
       },
     ],

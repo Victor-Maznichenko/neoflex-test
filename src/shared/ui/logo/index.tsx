@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
+import { ROUTES } from '../../lib';
 
 export const Logo = () => (
-  <a className={styles.logo} href="#">
+  <Link className={styles.logo} to={ROUTES.Home}>
     QPICK
-  </a>
+  </Link>
 );
