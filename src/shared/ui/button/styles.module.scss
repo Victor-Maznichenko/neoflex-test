@@ -1,0 +1,32 @@
+.button {
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.contained-yellow {
+  padding: 4px;
+  background-color: var(--orange-secondary);
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.contained-black {
+  padding: 22px 40px;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 21px;
+  color: var(--white);
+  border-radius: 20px;
+  background-color: var(--black-secondary);
+  box-shadow: 0px 0px 20px var(--black-25);
+}
+
+.text {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 21px;
+  color: var(--black-primary);
+}

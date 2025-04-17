@@ -1,0 +1,31 @@
+.productCard {
+  font-size: 17px;
+  font-weight: 600;
+  padding: 15px 22px 32px;
+  background-color: var(--white);
+  box-shadow: 0px 0px 20px var(--black-10);
+  border-radius: 30px;
+
+  &__imgWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+    height: 270px;
+  }
+
+  &__infoTop,
+  &__infoBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__infoTop {
+    margin-bottom: 25px;
+  }
+
+  &__price {
+    color: var(--orange-primary);
+  }
+}
