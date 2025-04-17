@@ -1,0 +1,28 @@
+.header {
+  &__inner {
+    padding: 15px 0;
+  }
+
+  &__end,
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__inner {
+    justify-content: space-between;
+  }
+
+  &__end {
+    color: var(--gray-secondary);
+    column-gap: 30px;
+  }
+
+  &__badge {
+    transition: color var(--trans-fast);
+
+    &:hover {
+      color: var(--dark);
+    }
+  }
+}

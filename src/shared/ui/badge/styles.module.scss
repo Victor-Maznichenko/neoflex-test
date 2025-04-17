@@ -1,0 +1,20 @@
+.badge {
+  position: relative;
+  display: inline-block;
+
+  &__count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    padding: 3px;
+    display: flex;
+    line-height: 1;
+    aspect-ratio: 1;
+    min-height: 18px;
+    border-radius: 50%;
+    color: var(--white);
+    align-items: center;
+    justify-content: center;
+    background-color: var(--orange-primary);
+  }
+}
