@@ -1,0 +1,13 @@
+.header {
+  margin-bottom: 28px;
+}
+
+.productsList {
+  & + & {
+    margin-top: 28px;
+  }
+}
+
+.main {
+  margin-bottom: 20px;
+}

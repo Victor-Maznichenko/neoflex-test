@@ -1,0 +1,31 @@
+:root {
+  /*
+   === Colors ===
+   */
+  --red: #df6464;
+  --text: #1c1c27;
+  --dark: #101010;
+  --white: #ffffff;
+  --black: #000000;
+  --background: #eaeaea;
+  --gray-primary: #aaaaaa;
+  --orange-primary: #ffa542;
+  --indigo-light: #4f46e5;
+
+  --gray-secondary: #838383;
+  --orange-secondary: #ffce7f;
+
+  --black-10: rgba(#000000, 0.1);
+  --black-25: rgba(#000000, 0.25);
+  /*
+     === Layers ===
+     */
+  --z-over: 1;
+  --z-under: -1;
+  --z-second-over: 2;
+
+  /*
+     === Transitions ===
+     */
+  --trans-fast: 0.3s ease;
+}
