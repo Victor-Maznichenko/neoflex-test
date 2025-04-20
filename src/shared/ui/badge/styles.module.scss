@@ -1,10 +1,11 @@
 .badge {
   position: relative;
   display: inline-block;
+  padding-top: 8px;
 
   &__count {
     position: absolute;
-    top: -8px;
+    top: 0;
     right: -10px;
     padding: 3px;
     display: flex;

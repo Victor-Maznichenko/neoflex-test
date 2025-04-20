@@ -1,13 +1,14 @@
-export const formatCurrency = (price: number, isCurrencyBefore?: boolean) => {
-  const formattedPrice = new Intl.NumberFormat('ru-RU', {
-    style: 'currency',
-    currency: 'RUB',
-    maximumFractionDigits: 0,
-  }).format(price);
+interface FormatCurrencyOptions {
+  isCurrencyBefore?: boolean;
+  useGrouping?: boolean;
+}
 
-  if (!isCurrencyBefore) {
-    return formattedPrice;
-  }
+export const formatCurrency = (price: number, options: FormatCurrencyOptions = {}) => {
+  const { isCurrencyBefore = false, useGrouping = true } = options;
+  const formattedPrice = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 })
+    .format(price)
+    .replace(/\u00A0/g, ' ');
+  const raw = useGrouping ? formattedPrice : price.toString();
 
-  return `${formattedPrice.slice(-1, formattedPrice.length)} ${formattedPrice.slice(0, -2)}`;
+  return isCurrencyBefore ? `₽ ${raw}` : `${raw} ₽`;
 };

@@ -21,6 +21,7 @@
     height: 136px;
     width: 146px;
     object-fit: contain;
+    margin-bottom: 17px;
 
     @include to($mobile) {
       height: 78px;
@@ -30,6 +31,7 @@
 
   &__title {
     margin-bottom: 12px;
+    font-size: inherit;
     line-height: 21px;
     font-weight: 500;
 
@@ -37,6 +39,10 @@
       font-size: 15px;
       margin-bottom: 4px;
     }
+  }
+
+  &__info {
+    margin-top: -15px;
   }
 
   &__info &__price {

@@ -16,7 +16,7 @@ export const Purchase = ({ className }: PurchaseProps) => {
     <div className={clsx(styles.purchase, className)}>
       <div className={styles.purchase__top}>
         <span>ИТОГО</span>
-        <span>{formatCurrency(totalPrice, true)}</span>
+        <span>{formatCurrency(totalPrice, { isCurrencyBefore: true })}</span>
       </div>
       <Button className={styles.purchase__button} variant="contained-black" onClick={placeOrder}>
         Перейти к оформлению

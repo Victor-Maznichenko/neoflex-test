@@ -5,12 +5,21 @@
   box-shadow: 0px 0px 20px var(--black-10);
   border-radius: 30px;
 
-  &__imgWrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 35px;
-    height: 270px;
+  &__img {
+    max-height: 240px;
+    object-fit: contain;
+
+    &Wrap {
+      margin-bottom: 23px;
+      height: 270px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    font-size: inherit;
   }
 
   &__infoTop,
@@ -26,5 +35,12 @@
 
   &__price {
     color: var(--orange-primary);
+  }
+
+  &__rate {
+    display: flex;
+    align-items: center;
+    color: var(--gray-secondary);
+    column-gap: 10px;
   }
 }

@@ -2,16 +2,23 @@
 @use '@/shared/assets/styles/variables' as *;
 
 .cart {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   margin: 29px 0 20px;
-  column-gap: 30px;
 
-  @include to($tablet) {
-    flex-direction: column-reverse;
-    align-items: stretch;
-    justify-content: flex-end;
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    column-gap: 30px;
+
+    @include to($tablet) {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      justify-content: flex-end;
+
+      @include to($tablet) {
+        font-size: 16px;
+      }
+    }
   }
 
   &__main,
@@ -29,6 +36,7 @@
 
   &__title {
     margin-bottom: 9px;
+    font-size: 20px;
   }
 
   &Item + &Item {
@@ -36,6 +44,7 @@
   }
 
   &__purchase {
+    margin-top: 10px;
     position: sticky;
     top: 15px;
     right: 0;
@@ -43,7 +52,7 @@
     @include to($tablet) {
       max-width: 100%;
       position: static;
-      margin-bottom: 20px;
+      margin: 0 0 20px;
     }
   }
 }

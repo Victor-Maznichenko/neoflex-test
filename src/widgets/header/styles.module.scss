@@ -1,6 +1,6 @@
 .header {
   &__inner {
-    padding: 15px 0;
+    padding: 11px 0 15px;
   }
 
   &__end,
@@ -15,7 +15,7 @@
 
   &__end {
     color: var(--gray-secondary);
-    column-gap: 30px;
+    column-gap: 45px;
   }
 
   &__badge {

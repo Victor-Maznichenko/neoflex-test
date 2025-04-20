@@ -12,11 +12,13 @@ export const CartPage = () => {
 
   return (
     <main className={styles.cart}>
-      <div className={styles.cart__main}>
-        <h4 className={styles.cart__title}>Корзина</h4>
-        <div className={styles.cart__list}>{isEmpty ? 'Список товаров пуст...' : cartItems}</div>
+      <h4 className={styles.cart__title}>Корзина</h4>
+      <div className={styles.cart__content}>
+        <div className={styles.cart__main}>
+          <div className={styles.cart__list}>{isEmpty ? 'Список товаров пуст...' : cartItems}</div>
+        </div>
+        {!isEmpty && <Purchase className={styles.cart__purchase} />}
       </div>
-      {!isEmpty && <Purchase className={styles.cart__purchase} />}
     </main>
   );
 };
