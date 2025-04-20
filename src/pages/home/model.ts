@@ -16,7 +16,13 @@ sample({
   fn: ({ products }) => products,
   target: $productsList,
 });
-// TODO: isLoading + Skeleton, Error handler
+
+/* 
+  TODO:
+  1. Реализовать индикатор загрузки (isLoading) и skeleton‑компоненты во время запроса.
+  2. Добавить обработку ошибок: ловить ошибки в getProductsFx.failData,
+      показывать пользователю понятное сообщение об ошибке. 
+*/
 
 export const model = {
   HomePageGate,
