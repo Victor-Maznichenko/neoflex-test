@@ -6,7 +6,7 @@ export const FOOTER_LINKS = [
     id: 0,
     list: [
       {
-        path: ROUTES.NotFound,
+        path: ROUTES.Favorites,
         text: 'Избранное',
       },
       {
@@ -14,7 +14,7 @@ export const FOOTER_LINKS = [
         text: 'Корзина',
       },
       {
-        path: ROUTES.NotFound,
+        path: ROUTES.Contacts,
         text: 'Контакты',
       },
     ],
@@ -23,7 +23,7 @@ export const FOOTER_LINKS = [
     id: 1,
     list: [
       {
-        path: ROUTES.NotFound,
+        path: ROUTES.Terms,
         text: 'Условия сервиса',
       },
     ],

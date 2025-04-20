@@ -1,0 +1,49 @@
+@use '@/shared/assets/styles/mixins' as *;
+@use '@/shared/assets/styles/variables' as *;
+
+.cart {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 29px 0 20px;
+  column-gap: 30px;
+
+  @include to($tablet) {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    justify-content: flex-end;
+  }
+
+  &__main,
+  &__purchase {
+    flex-grow: 1;
+
+    @include to($tablet) {
+      flex-grow: initial;
+    }
+  }
+
+  &__list {
+    max-width: 633px;
+  }
+
+  &__title {
+    margin-bottom: 9px;
+  }
+
+  &Item + &Item {
+    margin-top: 15px;
+  }
+
+  &__purchase {
+    position: sticky;
+    top: 15px;
+    right: 0;
+
+    @include to($tablet) {
+      max-width: 100%;
+      position: static;
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -18,6 +18,7 @@ html {
   --site-scale: calc(100vw / var(--desktop));
 
   font-size: calc(var(--site-scale) * #{16});
+  scrollbar-gutter: stable;
 
   @include to(var(--lg)) {
     --site-scale: calc(100vw / var(--lg));
@@ -37,13 +38,23 @@ body {
   background-color: var(--background);
   font-optical-sizing: auto;
   color: var(--text);
+  overflow-x: hidden;
   font-size: 17px;
+
+  @include to($mobile) {
+    font-size: 15px;
+  }
 }
 
 button {
   background-color: transparent;
   font-family: inherit;
+  cursor: pointer;
   border: none;
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 a {

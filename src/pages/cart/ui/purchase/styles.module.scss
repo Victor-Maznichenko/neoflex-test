@@ -1,0 +1,22 @@
+.purchase {
+  border-radius: 30px;
+  background-color: var(--white);
+  box-shadow: 0px 0px 20px var(--black-10);
+  padding: 21px 16px 0 21px;
+  position: relative;
+  max-width: 350px;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 18px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  &__button {
+    width: calc(100% + 16px + 21px);
+    margin: 15px -16px -6px -21px;
+  }
+}

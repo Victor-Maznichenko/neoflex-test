@@ -1,0 +1,62 @@
+@use '@/shared/assets/styles/mixins' as *;
+@use '@/shared/assets/styles/variables' as *;
+
+.counter {
+  width: 100%;
+  display: flex;
+  max-width: 118px;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 21px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.minusBtn,
+.plusBtn {
+  $paddingBtn: 8px;
+  width: 30px;
+  aspect-ratio: 1;
+  padding: $paddingBtn;
+  position: relative;
+
+  @include to($mobile) {
+    width: 24px;
+    padding: 5px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::before {
+    width: 14px;
+    height: 2px;
+    background-color: var(--white);
+
+    @include to($mobile) {
+      width: 12px;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.plusBtn {
+  &::after {
+    height: 14px;
+    width: 2px;
+    background-color: var(--white);
+
+    @include to($mobile) {
+      height: 12px;
+    }
+  }
+}

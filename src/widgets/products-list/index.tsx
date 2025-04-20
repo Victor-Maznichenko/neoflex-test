@@ -1,6 +1,5 @@
 import clsx from 'clsx';
-import { memo } from 'react';
-import { ProductsCard } from '../product-card';
+import { ProductCard } from '../product-card';
 import styles from './styles.module.scss';
 
 interface ProductsListProps {
@@ -9,14 +8,13 @@ interface ProductsListProps {
   className?: string;
 }
 
-// TODO: Проверить использование memo
-export const ProductsList = memo(({ title, list, className }: ProductsListProps) => (
+export const ProductsList = ({ title, list, className }: ProductsListProps) => (
   <section className={clsx(styles.products, className)}>
     <h4 className={styles.title}>{title}</h4>
     <div className={styles.products__list}>
       {list.map((productProps) => (
-        <ProductsCard {...productProps} className={styles.productCard} key={productProps.id} />
+        <ProductCard {...productProps} className={styles.productCard} key={productProps.id} />
       ))}
     </div>
   </section>
-));
+);

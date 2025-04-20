@@ -1,17 +1,17 @@
 import clsx from 'clsx';
+import { useUnit } from 'effector-react';
 import { Button, Icons } from '@/shared/ui';
+import { formatCurrency } from '@/shared/lib';
+import { model } from '../../model';
 import styles from './styles.module.scss';
 
-interface ProductsCardProps extends Product {
+interface ProductCardProps extends Product {
   className?: string;
 }
 
-export const ProductsCard = ({ className, img, title, price, rate }: ProductsCardProps) => {
-  const formattedPrice = new Intl.NumberFormat('ru-RU', {
-    style: 'currency',
-    currency: 'RUB',
-    maximumFractionDigits: 0,
-  }).format(price);
+export const ProductCard = ({ className, ...product }: ProductCardProps) => {
+  const addToCart = useUnit(model.addToCart);
+  const { img, title, price, rate } = product;
 
   return (
     <div className={clsx(styles.productCard, className)}>
@@ -20,14 +20,16 @@ export const ProductsCard = ({ className, img, title, price, rate }: ProductsCar
       </div>
       <div className={styles.productCard__infoTop}>
         <h5 className={styles.productCard__title}>{title}</h5>
-        <div className={styles.productCard__price}>{formattedPrice}</div>
+        <div className={styles.productCard__price}>{formatCurrency(price)}</div>
       </div>
       <div className={styles.productCard__infoBottom}>
         <div>
           <Icons.Star />
           <span>{rate}</span>
         </div>
-        <Button variant="text">Купить</Button>
+        <Button variant="text" onClick={() => addToCart(product)}>
+          Купить
+        </Button>
       </div>
     </div>
   );
