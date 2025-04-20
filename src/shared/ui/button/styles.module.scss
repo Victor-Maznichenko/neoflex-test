@@ -33,7 +33,7 @@
   font-weight: 600;
   line-height: 21px;
   color: var(--black-primary);
-  transition: all var(--trans-fast);
+  transition: filter var(--trans-fast);
 
   &:hover {
     filter: drop-shadow(0px 0px 24px var(--indigo-light));

@@ -1,0 +1,30 @@
+.notify {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  background-color: var(--white-70);
+  display: flex;
+  align-items: flex-start;
+  column-gap: 15px;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 10px var(--black-10);
+  border: 1px solid var(--dark);
+  max-height: 250px;
+  overflow: hidden;
+  transform: translateX(100%);
+  transition: transform var(--trans-medium);
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+  }
+
+  &__message {
+    font-weight: 500;
+  }
+}

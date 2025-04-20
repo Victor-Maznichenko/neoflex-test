@@ -2,6 +2,8 @@ import { reshape } from 'patronum';
 import { createEvent, createStore, sample } from 'effector';
 import { persist } from 'effector-storage/local';
 import { productCardModel } from '@/widgets';
+import { notificationModel } from '@/features';
+import { NotificationType } from '@/shared/lib';
 
 const $productsList = createStore<ProductCart[]>([]);
 const { $isEmpty } = reshape({
@@ -21,6 +23,7 @@ const { $cartItemsCount } = reshape({
 
 const $totalPrice = $productsList.map((items) => items.reduce((sum, item) => sum + item.price * item.quantity, 0));
 
+const productAdded = createEvent();
 const placeOrder = createEvent();
 // eslint-disable-next-line no-alert
 placeOrder.watch(() => alert('Покупка!'));
@@ -72,7 +75,27 @@ sample({
       totalQuantity: 10,
     },
   ],
-  target: $productsList,
+  target: [$productsList, productAdded],
+});
+
+sample({
+  clock: productCardModel.addToCart,
+  source: $productsList,
+  filter: (products, addedProduct) => !products.every(({ id }) => id !== addedProduct.id),
+  fn: () => ({
+    message: 'Товар уже есть в корзине!',
+    type: NotificationType.Fail,
+  }),
+  target: notificationModel.show,
+});
+
+sample({
+  clock: productAdded,
+  fn: () => ({
+    message: 'Корзина успешно обновленна!',
+    type: NotificationType.Success,
+  }),
+  target: notificationModel.show,
 });
 
 // Remove item

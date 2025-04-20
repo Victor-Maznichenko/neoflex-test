@@ -49,12 +49,12 @@
   }
 
   &__remove {
-    transition: all var(--trans-fast);
+    transition: filter var(--trans-fast);
     position: absolute;
+    z-index: var(--z-over);
     color: var(--red);
     font-size: 0;
     right: 28px;
-    z-index: 1;
     top: 18px;
 
     &:hover {

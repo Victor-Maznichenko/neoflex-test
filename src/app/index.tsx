@@ -2,8 +2,9 @@ import clsx from 'clsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage, CartPage, NotFoundPage } from '@/pages';
 import { Footer, Header } from '@/widgets';
-import styles from './styles.module.scss';
+import { Notification } from '@/features';
 import { ROUTES } from '../shared/lib';
+import styles from './styles.module.scss';
 
 export const App = () => (
   <BrowserRouter>
@@ -16,5 +17,6 @@ export const App = () => (
       </Routes>
       <Footer />
     </div>
+    <Notification />
   </BrowserRouter>
 );

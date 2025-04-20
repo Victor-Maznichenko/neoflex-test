@@ -7,7 +7,7 @@
   --dark: #101010;
   --white: #ffffff;
   --black: #000000;
-  --background: #eaeaea;
+  --background: eaeaea;
   --gray-primary: #aaaaaa;
   --orange-primary: #ffa542;
   --indigo-light: #4f46e5;
@@ -29,4 +29,5 @@
      === Transitions ===
      */
   --trans-fast: 0.3s ease;
+  --trans-medium: 0.4s ease-in-out;
 }
