@@ -1,7 +1,13 @@
-.notify {
-  position: fixed;
-  top: 80px;
+.notifications {
   right: 0;
+  top: 80px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.notify {
   background-color: var(--white-70);
   display: flex;
   align-items: flex-start;
@@ -15,9 +21,29 @@
   overflow: hidden;
   transform: translateX(100%);
   transition: transform var(--trans-medium);
+  animation: slideRight 0.3s forwards;
 
-  &.open {
+  @keyframes slideRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  &:global(.hide) {
     transform: translateX(0);
+    animation: slideLeft 0.3s forwards;
+
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
   }
 
   &__icon {

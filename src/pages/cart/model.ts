@@ -2,8 +2,8 @@ import { reshape } from 'patronum';
 import { createEvent, createStore, sample } from 'effector';
 import { persist } from 'effector-storage/local';
 import { productCardModel } from '@/widgets';
-import { notificationModel } from '@/features';
 import { NotificationType } from '@/shared/lib';
+import { toastModel } from '@/shared/config';
 
 const $productsList = createStore<ProductCart[]>([]);
 const { $isEmpty } = reshape({
@@ -63,11 +63,23 @@ sample({
 });
 
 // Add item
-sample({
-  clock: productCardModel.addToCart,
+const notAddedToCart = sample({
+  clock: productCardModel.debouncedAddToCart,
   source: $productsList,
-  filter: (products, addedProduct) => products.every(({ id }) => id !== addedProduct.id),
-  fn: (productsList, addedProduct) => [
+  filter: (products, addedProduct) => products.some(({ id }) => id === addedProduct.id),
+  fn: (productsList, addedProduct) => ({ productsList, addedProduct }),
+});
+
+const addedToCart = sample({
+  clock: productCardModel.debouncedAddToCart,
+  source: $productsList,
+  filter: (products, addedProduct) => !products.some(({ id }) => id === addedProduct.id),
+  fn: (productsList, addedProduct) => ({ productsList, addedProduct }),
+});
+
+sample({
+  clock: addedToCart,
+  fn: ({ productsList, addedProduct }) => [
     ...productsList,
     {
       ...addedProduct,
@@ -79,23 +91,21 @@ sample({
 });
 
 sample({
-  clock: productCardModel.addToCart,
-  source: $productsList,
-  filter: (products, addedProduct) => !products.every(({ id }) => id !== addedProduct.id),
-  fn: () => ({
-    message: 'Товар уже есть в корзине!',
-    type: NotificationType.Fail,
-  }),
-  target: notificationModel.show,
-});
-
-sample({
-  clock: productAdded,
+  clock: addedToCart,
   fn: () => ({
     message: 'Корзина успешно обновленна!',
     type: NotificationType.Success,
   }),
-  target: notificationModel.show,
+  target: toastModel.show,
+});
+
+sample({
+  clock: notAddedToCart,
+  fn: () => ({
+    message: 'Товар уже есть в корзине!',
+    type: NotificationType.Fail,
+  }),
+  target: toastModel.show,
 });
 
 // Remove item

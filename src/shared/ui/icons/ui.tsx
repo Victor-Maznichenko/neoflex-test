@@ -133,3 +133,10 @@ export const Fail = withDefaultProps(({ size = 32, ...props }) => (
     />
   </svg>
 ));
+
+export const Close = withDefaultProps(({ size = 32, ...props }) => (
+  <svg width={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M7.75732 7.75745L16.2426 16.2427" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    <path d="M16.2426 7.75745L7.75732 16.2427" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+  </svg>
+));
