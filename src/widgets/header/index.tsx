@@ -20,9 +20,6 @@ export const Header = ({ className }: HeaderProps) => {
           <Logo />
         </div>
         <div className={styles.header__end}>
-          <Badge className={styles.header__badge} as={Link} to={ROUTES.NotFound} count={0}>
-            <Icons.Heart />
-          </Badge>
           <Badge className={styles.header__badge} as={Link} to={ROUTES.Cart} count={cartItemsCount}>
             <Icons.Cart />
           </Badge>
