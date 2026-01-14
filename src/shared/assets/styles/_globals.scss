@@ -3,6 +3,11 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +16,7 @@
 
 ::selection {
   background: var(--orange-secondary);
-  color: var(--text);
+  color: var(--base-text);
 }
 
 html {
@@ -37,7 +42,7 @@ body {
   font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
   background-color: var(--background);
   font-optical-sizing: auto;
-  color: var(--text);
+  color: var(--base-text);
   overflow-x: hidden;
   font-size: 17px;
 

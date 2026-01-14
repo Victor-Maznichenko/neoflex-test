@@ -2,32 +2,58 @@
   /*
    === Colors ===
    */
-  --red: #df6464;
-  --text: #1c1c27;
-  --dark: #101010;
-  --white: #ffffff;
-  --black: #000000;
-  --background: eaeaea;
+  --background: #eaeaea;
+  --base-text: #1c1c27;
+
+  --inverse-light: #ffffff;
+  --inverse-dark: #101010;
+  --inverse-black: #000000;
+
   --gray-primary: #aaaaaa;
+  --gray-secondary: #838383;
+
+  --red: #df6464;                 
   --orange-primary: #ffa542;
+  --orange-secondary: #ffce7f;
   --indigo-light: #4f46e5;
 
-  --gray-secondary: #838383;
-  --orange-secondary: #ffce7f;
+  --inverse-black-10: rgba(0, 0, 0, 0.1);
+  --inverse-black-25: rgba(0, 0, 0, 0.25);
+  --inverse-white-70: rgba(255, 255, 255, 0.7);
 
-  --black-10: rgba(0, 0, 0, 0.1);
-  --black-25: rgba(0, 0, 0, 0.25);
-  --white-70: rgba(255, 255, 255, 0.7);
   /*
-     === Layers ===
-     */
-  --z-over: 1;
+   === Layers ===
+  */
   --z-under: -1;
+  --z-over: 1;
   --z-second-over: 2;
 
   /*
-     === Transitions ===
-     */
+   === Transitions ===
+  */
   --trans-fast: 0.3s ease;
   --trans-medium: 0.4s ease-in-out;
+}
+
+
+/* === Dark Theme === */
+[data-theme='dark'] {
+  --background: #1c1c27;
+  --base-text: #e0e0e0;
+
+  --inverse-light: #1c1c27;
+  --inverse-dark: #ffffff;
+  --inverse-black: #ffffff;
+
+  --gray-primary: #555555;
+  --gray-secondary: #999999;
+
+  --red: #ff6b6b;                
+  --orange-primary: #ffa542;
+  --orange-secondary: #ffc875;
+  --indigo-light: #818cf8;
+
+  --inverse-black-10: rgba(255, 255, 255, 0.1);
+  --inverse-black-25: rgba(255, 255, 255, 0.25);
+  --inverse-white-70: rgba(255, 255, 255, 0.7);
 }

@@ -9,7 +9,7 @@
   justify-content: space-between;
   line-height: 21px;
   font-weight: 600;
-  color: var(--black);
+  color: var(--inverse-black);
 }
 
 .minusBtn,
@@ -37,7 +37,7 @@
   &::before {
     width: 14px;
     height: 2px;
-    background-color: var(--white);
+    background-color: var(--inverse-light);
 
     @include to($mobile) {
       width: 12px;
@@ -53,7 +53,7 @@
   &::after {
     height: 14px;
     width: 2px;
-    background-color: var(--white);
+    background-color: var(--inverse-light);
 
     @include to($mobile) {
       height: 12px;

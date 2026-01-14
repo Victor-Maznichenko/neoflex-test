@@ -9,10 +9,15 @@
   font-size: 17px;
 }
 
+.unstyled {
+  padding: 0;
+  color: inherit;
+}
+
 .contained-yellow {
   padding: 4px;
   background-color: var(--orange-secondary);
-  color: var(--white);
+  color: var(--inverse-light);
   border-radius: 50%;
 }
 
@@ -20,10 +25,10 @@
   padding: 22px 40px;
   font-weight: 600;
   line-height: 21px;
-  color: var(--white);
+  color: var(--inverse-light);
   border-radius: 20px;
-  background-color: var(--dark);
-  box-shadow: 0px 0px 20px var(--black-25);
+  background-color: var(--inverse-dark);
+  box-shadow: 0px 0px 20px var(--inverse-black-25);
 
   @include to($mobile) {
     padding: 22px 30px;
@@ -33,7 +38,7 @@
 .text {
   font-weight: 600;
   line-height: 21px;
-  color: var(--black-primary);
+  color: var(--inverse-black);
   transition: filter var(--trans-fast);
 
   &:hover {

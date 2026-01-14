@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes } from 'react';
 import styles from './styles.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'contained-yellow' | 'contained-black' | 'text';
+  variant?: 'contained-yellow' | 'contained-black' | 'text' | 'unstyled';
 }
 
 export const Button = ({

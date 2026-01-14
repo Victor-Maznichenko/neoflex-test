@@ -22,7 +22,7 @@
     transition: color var(--trans-fast);
 
     &:hover {
-      color: var(--dark);
+      color: var(--inverse-dark);
     }
   }
 }
