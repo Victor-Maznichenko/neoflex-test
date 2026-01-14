@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 interface ThemeContextData {
   theme: string | null;
@@ -9,3 +9,13 @@ export const ThemeContext = createContext<ThemeContextData>({
   theme: null,
   toggleTheme: () => {},
 });
+
+export const useThemeContext = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  if (!theme) {
+    throw new Error("Can not use 'useThemeContext' outside 'ThemeProvider'.");
+  }
+
+  return { theme, toggleTheme };
+};
