@@ -1,0 +1,194 @@
+openapi: 3.0.0
+info:
+  title: API для интернет-магазина QPICK
+  description: Тестовое задание в neoflex
+  version: 1.0.0
+  contact:
+    name: Victor Maznichenko
+
+servers:
+  - url: http://localhost:3001/api/v1
+    description: Локальный сервер для разработки
+
+paths:
+  /products:
+    get:
+      summary: Получить список продуктов с фильтрацией и пагинацией
+      tags:
+        - Продукты
+      parameters:
+        - name: page
+          in: query
+          description: Номер страницы
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: limit
+          in: query
+          description: Количество элементов на странице
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+        - name: categoryId
+          in: query
+          description: Фильтр по ID категории
+          required: false
+          schema:
+            type: integer
+        - name: minPrice
+          in: query
+          description: Минимальная цена
+          required: false
+          schema:
+            type: number
+        - name: maxPrice
+          in: query
+          description: Максимальная цена
+          required: false
+          schema:
+            type: number
+        - name: search
+          in: query
+          description: Поиск по названию или описанию
+          required: false
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          description: Сортировка по полю
+          required: false
+          schema:
+            type: string
+            enum: [createdAt, price, priority]
+            default: createdAt
+        - name: sortOrder
+          in: query
+          description: Порядок сортировки
+          required: false
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+      responses:
+        '200':
+          description: Список продуктов
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /products/{id}:
+    get:
+      summary: Получить продукт по ID
+      tags:
+        - Продукты
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Детальная информация о продукте
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        category:
+          type: string
+        categoryId:
+          type: integer
+        rate:
+          type: integer
+        total:
+          type: integer
+        img:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    
+    Pagination:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+        totalPages:
+          type: integer
+        totalItems:
+          type: integer
+        itemsPerPage:
+          type: integer
+  
+  responses:
+    BadRequest:
+      description: Некорректный запрос
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              message:
+                type: string
+    
+    NotFound:
+      description: Ресурс не найден
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              id:
+                type: integer
+    
+    InternalServerError:
+      description: Внутренняя ошибка сервера
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              message:
+                type: string
