@@ -27,18 +27,18 @@ interface BaseProductParams {
 
 interface GetProductParams {
   categoryId?: number | string;
-  limit?: number;
   maxPrice?: number;
   minPrice?: number;
-  page?: number;
   search?: string;
+  limit?: number;
+  page?: number;
   sortOrder?: 'asc' | 'desc';
   sortBy?: 'createdAt' | 'price' | 'priority';
 }
 
 interface Pagination {
-  currentPage: number;
   itemsPerPage: number;
+  currentPage: number;
   totalItems: number;
   totalPages: number;
 }
