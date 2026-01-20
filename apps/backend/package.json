@@ -1,5 +1,6 @@
 {
   "name": "backend",
+  "private": true,
   "version": "1.0.0",
   "description": "API сервер для тестового задания в neoflex",
   "author": "Victor Maznichenko",
@@ -7,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "lint": ""
   },
   "keywords": [
     "express",

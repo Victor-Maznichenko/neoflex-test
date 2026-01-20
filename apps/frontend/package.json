@@ -1,9 +1,9 @@
 {
   "name": "frontend",
-  "private": false,
-  "description": "Online Audio Accessories Store QPICK",
   "version": "2.0.0",
   "type": "module",
+  "private": true,
+  "description": "Online Audio Accessories Store QPICK",
   "license": "MIT",
   "author": {
     "name": "Victor Maznichenko",
@@ -12,12 +12,12 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "check-types": "tsc --noEmit",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier .  --write",
-    "preview": "vite preview",
-    "test": "tsc && vite build",
-    "prepare": "husky install"
+    "lint-staged": "lint-staged",
+    "preview": "vite preview"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -56,5 +56,9 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-eslint": "^1.8.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.ts": "eslint --fix"
   }
 }
