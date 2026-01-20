@@ -1,11 +1,13 @@
 import clsx from 'clsx';
+
 import { ProductCard } from '../product-card';
+
 import styles from './styles.module.scss';
 
 interface ProductsListProps {
-  title: string;
-  list: Product[];
   className?: string;
+  list: Product[];
+  title: string;
 }
 
 export const ProductsList = ({ title, list, className }: ProductsListProps) => (
@@ -13,7 +15,7 @@ export const ProductsList = ({ title, list, className }: ProductsListProps) => (
     <h4 className={styles.title}>{title}</h4>
     <div className={styles.products__list}>
       {list.map((productProps) => (
-        <ProductCard {...productProps} className={styles.productCard} key={productProps.id} />
+        <ProductCard {...productProps} key={productProps.id} className={styles.productCard} />
       ))}
     </div>
   </section>

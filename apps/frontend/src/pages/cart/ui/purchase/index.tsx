@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
-import { Button } from '@/shared/ui';
+
 import { formatCurrency } from '@/shared/lib';
+import { Button } from '@/shared/ui';
+
 import { model } from '../../model';
+
 import styles from './styles.module.scss';
 
 interface PurchaseProps {

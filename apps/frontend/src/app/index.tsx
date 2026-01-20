@@ -1,9 +1,11 @@
 import clsx from 'clsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { HomePage, CartPage, NotFoundPage } from '@/pages';
-import { Footer, Header } from '@/widgets';
+
 import { Notifications } from '@/features';
+import { CartPage, HomePage, NotFoundPage } from '@/pages';
 import { ROUTES, ThemeProvider } from '@/shared/lib';
+import { Footer, Header } from '@/widgets';
+
 import styles from './styles.module.scss';
 
 export const App = () => (
@@ -12,9 +14,9 @@ export const App = () => (
       <div className={clsx(styles.wrapper, 'container')}>
         <Header />
         <Routes>
-          <Route path={ROUTES.Home} element={<HomePage />} />
-          <Route path={ROUTES.Cart} element={<CartPage />} />
-          <Route path={ROUTES.NotFound} element={<NotFoundPage />} />
+          <Route element={<HomePage />} path={ROUTES.Home} />
+          <Route element={<CartPage />} path={ROUTES.Cart} />
+          <Route element={<NotFoundPage />} path={ROUTES.NotFound} />
         </Routes>
         <Footer />
       </div>

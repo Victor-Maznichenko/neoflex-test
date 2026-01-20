@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
-import { Button, Icons } from '@/shared/ui';
+
 import { formatCurrency } from '@/shared/lib';
+import { Button, Icons } from '@/shared/ui';
+
 import { model } from './model';
+
 import styles from './styles.module.scss';
 
 interface ProductCardProps extends Product {
@@ -16,7 +19,7 @@ export const ProductCard = ({ className, ...product }: ProductCardProps) => {
   return (
     <div className={clsx(styles.productCard, className)}>
       <div className={styles.productCard__imgWrap}>
-        <img className={styles.productCard__img} src={img} alt="" />
+        <img alt="" className={styles.productCard__img} src={img} />
       </div>
       <div className={styles.productCard__infoTop}>
         <h5 className={styles.productCard__title}>{title}</h5>

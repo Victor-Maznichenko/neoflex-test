@@ -1,7 +1,9 @@
 import { useList, useUnit } from 'effector-react';
+
+import { model } from '../../model';
 import { CartItem } from '../cart-item';
 import { Purchase } from '../purchase';
-import { model } from '../../model';
+
 import styles from './styles.module.scss';
 
 export const CartPage = () => {

@@ -1,9 +1,11 @@
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
 import { useUnit } from 'effector-react';
-import { ROUTES } from '@/shared/lib';
+import { Link } from 'react-router-dom';
+
 import { cartModel } from '@/pages';
-import { Icons, Badge, Logo, ThemeSwitcher } from '@/shared/ui';
+import { ROUTES } from '@/shared/lib';
+import { Badge, Icons, Logo, ThemeSwitcher } from '@/shared/ui';
+
 import styles from './styles.module.scss';
 
 interface HeaderProps {
@@ -21,7 +23,7 @@ export const Header = ({ className }: HeaderProps) => {
         </div>
         <div className={styles.header__end}>
           <ThemeSwitcher />
-          <Badge className={styles.header__badge} as={Link} to={ROUTES.Cart} count={cartItemsCount}>
+          <Badge as={Link} className={styles.header__badge} count={cartItemsCount} to={ROUTES.Cart}>
             <Icons.Cart />
           </Badge>
         </div>

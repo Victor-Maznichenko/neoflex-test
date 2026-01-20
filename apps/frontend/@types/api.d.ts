@@ -1,9 +1,9 @@
 interface Product {
   id: number;
   img: string;
-  title: string;
   price: number;
   rate: number;
+  title: string;
 }
 
 interface ProductCart extends Product {
@@ -13,8 +13,8 @@ interface ProductCart extends Product {
 
 interface ProductsList {
   id: number;
-  title: string;
   list: Product[];
+  title: string;
 }
 
 interface ProductsResponse {
@@ -27,23 +27,23 @@ interface BaseProductParams {
 
 interface GetProductParams {
   categoryId?: number | string;
+  limit?: number;
   maxPrice?: number;
   minPrice?: number;
-  search?: string;
-  limit?: number;
   page?: number;
-  sortOrder?: 'asc' | 'desc';
+  search?: string;
   sortBy?: 'createdAt' | 'price' | 'priority';
+  sortOrder?: 'asc' | 'desc';
 }
 
 interface Pagination {
-  itemsPerPage: number;
   currentPage: number;
+  itemsPerPage: number;
   totalItems: number;
   totalPages: number;
 }
 
 interface GetProductsResponse {
-  products: ProductsList[];
   pagination: Pagination;
+  products: ProductsList[];
 }

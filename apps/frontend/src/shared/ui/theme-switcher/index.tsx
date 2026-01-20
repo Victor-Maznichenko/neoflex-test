@@ -1,8 +1,12 @@
-import { useContext, type ComponentProps, type MouseEvent } from 'react';
+import type {ComponentProps, MouseEvent} from 'react';
 
-import { Icons } from '../icons';
-import { Button } from '../button';
+import {   use } from 'react';
+
 import { ThemeContext } from '@/shared/lib';
+
+import { Button } from '../button';
+import { Icons } from '../icons';
+
 import styles from './styles.module.scss';
 
 const getThemeSwitchAnimation = (x: number, y: number, isReverse?: boolean) => {
@@ -27,7 +31,7 @@ interface ThemeSwitcherProps extends ComponentProps<'button'> {
 }
 
 export const ThemeSwitcher = ({ onClick, ...props }: ThemeSwitcherProps) => {
-  const { toggleTheme, theme } = useContext(ThemeContext);
+  const { toggleTheme, theme } = use(ThemeContext);
   const isLightTheme = theme === 'light';
 
   const handleClick = (event: MouseEvent) => {

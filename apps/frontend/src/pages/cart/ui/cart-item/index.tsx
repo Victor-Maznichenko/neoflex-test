@@ -1,9 +1,12 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
-import { model } from '../../model';
+
 import { formatCurrency } from '@/shared/lib';
 import { Icons } from '@/shared/ui';
+
+import { model } from '../../model';
 import { Counter } from '../counter';
+
 import styles from './styles.module.scss';
 
 interface CartItemProps extends ProductCart {
@@ -15,13 +18,13 @@ export const CartItem = ({ className, id, img, title, price, quantity, totalQuan
 
   return (
     <div className={clsx(styles.cartItem, className)}>
-      <button className={styles.cartItem__remove} onClick={() => removeFromCart(id)} type="button">
+      <button className={styles.cartItem__remove} type="button" onClick={() => removeFromCart(id)}>
         <Icons.Trash />
       </button>
 
       <div className={styles.cartItem__left}>
-        <img className={styles.cartItem__img} src={img} alt="" />
-        <Counter id={id} value={quantity} maxValue={totalQuantity} />
+        <img alt="" className={styles.cartItem__img} src={img} />
+        <Counter id={id} maxValue={totalQuantity} value={quantity} />
       </div>
 
       <div className={styles.cartItem__info}>

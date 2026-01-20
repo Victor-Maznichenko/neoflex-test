@@ -1,9 +1,11 @@
+import type { ButtonHTMLAttributes } from 'react';
+
 import clsx from 'clsx';
-import { ButtonHTMLAttributes } from 'react';
+
 import styles from './styles.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'contained-yellow' | 'contained-black' | 'text' | 'unstyled';
+  variant?: 'contained-black' | 'contained-yellow' | 'text' | 'unstyled';
 }
 
 export const Button = ({

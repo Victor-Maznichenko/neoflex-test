@@ -1,13 +1,14 @@
+import clsx from 'clsx';
 import { createEvent, createStore, sample } from 'effector';
 import { delay } from 'patronum';
-import clsx from 'clsx';
-import { NotificationType } from '../lib/constants/general';
+
+import type { NotificationType } from '../lib/constants/general';
 
 interface Toast {
-  id: number;
-  title?: string;
-  message?: string;
   className?: string;
+  id: number;
+  message?: string;
+  title?: string;
   type: NotificationType;
 }
 

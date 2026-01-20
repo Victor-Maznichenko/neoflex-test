@@ -1,6 +1,13 @@
 {
   "name": "neoflex-test",
+  "description": "Online Audio Accessories Store QPICK",
+  "license": "MIT",
   "private": true,
+  "author": {
+    "name": "Victor Maznichenko",
+    "email": "victor_maznichenko@mail.ru",
+    "url": "https://github.com/victor_maznichenko"
+  },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
     "apps/*",

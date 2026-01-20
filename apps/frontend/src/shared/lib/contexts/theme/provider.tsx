@@ -1,7 +1,10 @@
-import { ReactNode, useEffect } from 'react';
+import type { ReactNode} from 'react';
+
+import { useCallback, useEffect, useMemo } from 'react';
+
+import { useLocalStorage } from '@/shared/lib/hooks';
 
 import { ThemeContext } from './context';
-import { useLocalStorage } from '@/shared/lib/hooks';
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -10,10 +13,12 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useLocalStorage({ key: 'theme' });
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  }, [theme, setTheme]);
 
+  const contextValue = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
+  
   useEffect(() => {
     if (theme) {
       document.body.setAttribute('data-theme', theme);
@@ -24,5 +29,5 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     document.body.setAttribute('data-theme', 'dark');
   }, [theme, setTheme]);
 
-  return <ThemeContext value={{ theme, toggleTheme }}>{children}</ThemeContext>;
+  return <ThemeContext value={contextValue}>{children}</ThemeContext>;
 };

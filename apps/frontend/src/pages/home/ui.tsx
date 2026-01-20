@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import { useGate, useList, useUnit } from 'effector-react';
-import { ProductsList } from '@/widgets';
-import { model } from './model';
+
 import { useIntersectionObserver } from '@/shared/lib/hooks';
+import { ProductsList } from '@/widgets';
+
+import { model } from './model';
+
 import styles from './styles.module.scss';
 
 interface HomePageProps {
@@ -17,13 +20,13 @@ export const HomePage = ({ className }: HomePageProps) => {
   });
 
   const productsList = useList(model.$productsList, ({ title, list }) => (
-    <ProductsList className={styles.productsList} title={title} list={list} />
+    <ProductsList className={styles.productsList} list={list} title={title} />
   ));
 
   return (
     <main className={clsx(styles.main, className)}>
       {productsList}
-      <div className={styles.bottom} ref={bottomRef} />
+      <div ref={bottomRef} className={styles.bottom} />
     </main>
   );
 };

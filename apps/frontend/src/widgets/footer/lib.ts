@@ -1,5 +1,5 @@
-import { Icons } from '@/shared/ui';
 import { ROUTES } from '@/shared/lib';
+import { Icons } from '@/shared/ui';
 
 export const FOOTER_LINKS = [
   {

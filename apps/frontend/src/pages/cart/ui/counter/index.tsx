@@ -1,12 +1,15 @@
 import { useUnit } from 'effector-react';
-import { model } from '../../model';
+
 import { Button } from '@/shared/ui';
+
+import { model } from '../../model';
+
 import styles from './styles.module.scss';
 
 interface CounterProps {
   id: number;
-  value: number;
   maxValue: number;
+  value: number;
 }
 
 export const Counter = ({ id, value, maxValue }: CounterProps) => {
@@ -14,9 +17,9 @@ export const Counter = ({ id, value, maxValue }: CounterProps) => {
 
   return (
     <div className={styles.counter}>
-      <Button className={styles.minusBtn} onClick={() => decrement(id)} disabled={value <= 1} />
+      <Button className={styles.minusBtn} disabled={value <= 1} onClick={() => decrement(id)} />
       <span>{value}</span>
-      <Button className={styles.plusBtn} onClick={() => increment(id)} disabled={value >= maxValue} />
+      <Button className={styles.plusBtn} disabled={value >= maxValue} onClick={() => increment(id)} />
     </div>
   );
 };

@@ -1,9 +1,10 @@
-import { reshape } from 'patronum';
 import { createEvent, createStore, sample } from 'effector';
 import { persist } from 'effector-storage/local';
-import { productCardModel } from '@/widgets';
-import { NotificationType } from '@/shared/lib';
+import { reshape } from 'patronum';
+
 import { toastModel } from '@/shared/config';
+import { NotificationType } from '@/shared/lib';
+import { productCardModel } from '@/widgets';
 
 const $productsList = createStore<ProductCart[]>([]);
 const { $isEmpty } = reshape({

@@ -1,5 +1,5 @@
-import { Icons } from '@/shared/ui';
 import { NotificationType } from '@/shared/lib';
+import { Icons } from '@/shared/ui';
 
 export const NotificationIcons = {
   [NotificationType.Success]: Icons.Success,
@@ -7,8 +7,8 @@ export const NotificationIcons = {
 };
 
 export interface NotificationParams {
-  type: NotificationType;
   message: string;
+  type: NotificationType;
 }
 
 export const initialData = {

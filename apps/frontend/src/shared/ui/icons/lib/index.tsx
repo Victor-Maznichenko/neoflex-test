@@ -1,10 +1,10 @@
 import type { JSX, ReactElement } from 'react';
 
-type IconProps = {
-  size?: number;
-  fill?: string;
+interface IconProps {
   className?: string;
-};
+  fill?: string;
+  size?: number;
+}
 export type IconType = (props: IconProps) => ReactElement | null;
 
 export const withDefaultProps =
