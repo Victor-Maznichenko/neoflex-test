@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useGate, useList, useUnit } from 'effector-react';
 
 import { useIntersectionObserver } from '@/shared/lib/hooks';
+import { Spinner } from '@/shared/ui';
 import { ProductsList } from '@/widgets';
 
 import { model } from './model';
@@ -14,7 +15,7 @@ interface HomePageProps {
 
 export const HomePage = ({ className }: HomePageProps) => {
   useGate(model.HomePageGate);
-  const [loadedMore] = useUnit([model.loadedMore]);
+  const [loadedMore, isLoading, isComplete] = useUnit([model.loadedMore, model.isLoading, model.isComplete]);
   const { ref: bottomRef } = useIntersectionObserver<HTMLDivElement>({
     callback: ({ isIntersecting }) => (isIntersecting ? loadedMore() : undefined),
   });
@@ -26,6 +27,10 @@ export const HomePage = ({ className }: HomePageProps) => {
   return (
     <main className={clsx(styles.main, className)}>
       {productsList}
+      <div className={styles.spinnerWrapper}>
+        {isLoading && <Spinner />}
+        {isComplete && 'Все товары были загружены :)'}
+      </div>
       <div ref={bottomRef} className={styles.bottom} />
     </main>
   );

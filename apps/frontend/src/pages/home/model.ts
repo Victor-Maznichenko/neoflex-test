@@ -1,6 +1,6 @@
-import { createEffect, createEvent, createStore, sample } from 'effector';
+import { combine, createEffect, createEvent, createStore, sample } from 'effector';
 import { createGate } from 'effector-react';
-import { spread } from 'patronum';
+import { equals, spread } from 'patronum';
 
 import { getProducts } from '@/shared/api/requests';
 
@@ -8,12 +8,28 @@ const HomePageGate = createGate();
 const $productsList = createStore<ProductsList[]>([]);
 const getProductsFx = createEffect(getProducts);
 
-/* Pagination logic */
+/* 
+==================
+Pagination logic 
+==================
+*/
 const loadedMore = createEvent();
-const $totalPages = createStore(1);
+const $totalPages = createStore(-1);
 const $page = createStore(1);
-$page.on(loadedMore, (page) => page + 1);
 
+sample({
+  clock: loadedMore,
+  source: combine($totalPages, $page),
+  filter: ([totalPages, page]) => totalPages > page,
+  fn: ([_, page]) => page + 1,
+  target: $page,
+})
+
+/* 
+================== 
+Load products logic
+==================
+*/
 sample({
   clock: [HomePageGate.open, $page],
   source: $page,
@@ -37,6 +53,7 @@ sample({
 export const model = {
   loadedMore,
   isLoading: getProductsFx.pending,
+  isComplete: equals($page, $totalPages),
   HomePageGate,
   $productsList,
   getProductsFx,

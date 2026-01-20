@@ -1,0 +1,32 @@
+:global(:root) {
+  --loader-size: 2rem;
+  --loader-color: var(--inverse-black);
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: var(--loader-size);
+  height: var(--loader-size);
+
+  &::after {
+    content: '';
+    display: block;
+    width: var(--loader-size);
+    height: var(--loader-size);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: calc(var(--loader-size) / 8);
+    border-color: var(--loader-color) var(--loader-color) var(--loader-color) transparent;
+    animation: spinner-animation 1.2s linear infinite;
+  }
+}
