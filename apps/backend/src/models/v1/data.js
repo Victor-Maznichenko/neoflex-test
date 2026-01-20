@@ -1,3 +1,5 @@
+const process = require("node:process");
+
 const generateMockProducts = () => {
    const PORT = process.env.PORT || 3001;
    const baseURL = process.env.BASE_URL || `http://localhost:${PORT}`;
@@ -31,8 +33,8 @@ const generateMockProducts = () => {
             title: `Headphones ${category} ${i}`,
             description: `Подробное описание товара Headphones ${category}. Это отличный товар, который подходит для различных целей. Качество проверено временем и имеет гарантию.`,
             price: Math.floor(Math.random() * 10000) + 1000,
-            category: category,
-            categoryId: categoryId,
+            category,
+            categoryId,
             createdAt: createdAt.toISOString(),
             updatedAt: createdAt.toISOString(),
             rate: (Math.random() * 5).toFixed(1),

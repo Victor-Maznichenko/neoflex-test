@@ -1,7 +1,7 @@
-const express = require('express');
-const path = require('path');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const express = require('express');
+const process = require("node:process");
 dotenv.config();
 
 const app = express();
@@ -13,14 +13,14 @@ app.use(express.static('public'));
 
 app.use('/api/v1', require('./src/routes/v1'));
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.json({
     message: 'API сервер для интернет-магазина QPICK',
     version: '1.0.0'
   });
 });
 
-app.use((err, req, res, next) => {
+app.use((err, _, res, __) => {
   console.error(err.stack);
   res.status(500).json({
     error: 'Что-то пошло не так!',

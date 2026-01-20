@@ -1,2 +1,2 @@
-turbo run frontend#lint
+turbo run lint
 turbo run frontend#build

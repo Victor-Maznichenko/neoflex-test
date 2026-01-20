@@ -1,4 +1,4 @@
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, req, res, _) => {
   console.error('API Error:', err);
   
   const statusCode = err.statusCode || 500;
@@ -6,8 +6,8 @@ const errorHandler = (err, req, res, next) => {
   
   res.status(statusCode).json({
     error: {
-      message: message,
-      statusCode: statusCode,
+      message,
+      statusCode,
       timestamp: new Date().toISOString(),
       path: req.path
     }

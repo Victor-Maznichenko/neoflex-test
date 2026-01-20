@@ -5,27 +5,10 @@ const getProducts = (req, res) => {
     const {
       page = 1,
       limit = 2,
-      categoryId,
-      minPrice,
-      maxPrice,
-      search,
-      sortBy = 'createdAt',
-      sortOrder = 'desc'
+      // search,
     } = req.query;
 
-    let filteredProducts = [...dataStore.products];
-
-    // if (categoryId) {
-    //   filteredProducts = filteredProducts.filter(p => p.categoryId === parseInt(categoryId));
-    // }
-
-    // if (minPrice) {
-    //   filteredProducts = filteredProducts.filter(p => p.price >= parseFloat(minPrice));
-    // }
-
-    // if (maxPrice) {
-    //   filteredProducts = filteredProducts.filter(p => p.price <= parseFloat(maxPrice));
-    // }
+    const filteredProducts = [...dataStore.products];
 
     // if (search) {
     //   const searchLower = search.toLowerCase();
@@ -35,40 +18,18 @@ const getProducts = (req, res) => {
     //   );
     // }
 
-    // filteredProducts.sort((a, b) => {
-    //   let aValue, bValue;
-      
-    //   switch (sortBy) {
-    //     case 'price':
-    //       aValue = a.price;
-    //       bValue = b.price;
-    //       break;
-    //     case 'createdAt':
-    //     default:
-    //       aValue = new Date(a.createdAt);
-    //       bValue = new Date(b.createdAt);
-    //       break;
-    //   }
-      
-    //   if (sortOrder === 'asc') {
-    //     return aValue > bValue ? 1 : -1;
-    //   } else {
-    //     return aValue < bValue ? 1 : -1;
-    //   }
-    // });
-
     const total = filteredProducts.length;
     const startIndex = (page - 1) * limit;
-    const endIndex = startIndex + parseInt(limit);
+    const endIndex = startIndex + Number.parseInt(limit);
     const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
 
     res.json({
       products: paginatedProducts,
       pagination: {
-        currentPage: parseInt(page),
+        currentPage: Number.parseInt(page),
         totalPages: Math.ceil(total / limit),
         totalItems: total,
-        itemsPerPage: parseInt(limit)
+        itemsPerPage: Number.parseInt(limit)
       }
     });
   } catch (error) {
@@ -82,7 +43,7 @@ const getProducts = (req, res) => {
 const getProductById = (req, res) => {
   try {
     const { id } = req.params;
-    const productId = parseInt(id);
+    const productId = Number.parseInt(id);
     const product = dataStore.products.find(p => p.id === productId);
     
     if (!product) {
