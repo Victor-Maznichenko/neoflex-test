@@ -1,14 +1,12 @@
 import { useList, useUnit } from 'effector-react';
 
-import { model } from '../../model';
-import { CartItem } from '../cart-item';
-import { Purchase } from '../purchase';
+import { CartItem, cartModel , Purchase} from '@/entities/cart';
 
 import styles from './styles.module.scss';
 
 export const CartPage = () => {
-  const isEmpty = useUnit(model.$isEmpty);
-  const cartItems = useList(model.$productsList, (productCart) => (
+  const isEmpty = useUnit(cartModel.$isEmpty);
+  const cartItems = useList(cartModel.$productsList, (productCart) => (
     <CartItem className={styles.cartItem} {...productCart} />
   ));
 

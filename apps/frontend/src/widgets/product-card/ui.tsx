@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
 
+import { model } from '@/entities/cart/model';
 import { formatCurrency } from '@/shared/lib';
 import { Button, Icons } from '@/shared/ui';
-
-import { model } from './model';
 
 import styles from './styles.module.scss';
 

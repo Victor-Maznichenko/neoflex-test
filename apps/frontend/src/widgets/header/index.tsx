@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useUnit } from 'effector-react';
 import { Link } from 'react-router-dom';
 
-import { cartModel } from '@/pages';
+import { cartModel } from '@/entities/cart';
 import { ROUTES } from '@/shared/lib';
 import { Badge, Icons, Logo, ThemeSwitcher } from '@/shared/ui';
 

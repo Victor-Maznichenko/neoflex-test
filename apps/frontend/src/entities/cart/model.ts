@@ -1,10 +1,9 @@
 import { createEvent, createStore, sample } from 'effector';
 import { persist } from 'effector-storage/local';
-import { reshape } from 'patronum';
+import { reshape, throttle } from 'patronum';
 
 import { toastModel } from '@/shared/config';
 import { NotificationType } from '@/shared/lib';
-import { productCardModel } from '@/widgets';
 
 const $productsList = createStore<ProductCart[]>([]);
 const { $isEmpty } = reshape({
@@ -37,6 +36,8 @@ placeOrder.watch(() => alert('Покупка!'));
 const increment = createEvent<number>();
 const decrement = createEvent<number>();
 const removeFromCart = createEvent<number>();
+const addToCart = createEvent<Product>();
+const debouncedAddToCart = throttle(addToCart, 300);
 
 // Increment
 sample({
@@ -65,14 +66,14 @@ sample({
 
 // Add item
 const notAddedToCart = sample({
-  clock: productCardModel.debouncedAddToCart,
+  clock: debouncedAddToCart,
   source: $productsList,
   filter: (products, addedProduct) => products.some(({ id }) => id === addedProduct.id),
   fn: (productsList, addedProduct) => ({ productsList, addedProduct }),
 });
 
 const addedToCart = sample({
-  clock: productCardModel.debouncedAddToCart,
+  clock: debouncedAddToCart,
   source: $productsList,
   filter: (products, addedProduct) => !products.some(({ id }) => id === addedProduct.id),
   fn: (productsList, addedProduct) => ({ productsList, addedProduct }),
@@ -126,4 +127,5 @@ export const model = {
   decrement,
   removeFromCart,
   placeOrder,
+  addToCart
 };
