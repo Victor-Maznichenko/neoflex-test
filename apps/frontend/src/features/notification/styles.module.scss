@@ -8,14 +8,14 @@
 }
 
 .notify {
-  background-color: var(--inverse-white-70);
+  background-color: var(--color-white-70);
   display: flex;
   align-items: flex-start;
   column-gap: 15px;
   max-width: 350px;
   padding: 20px;
   border-radius: 16px;
-  box-shadow: 0px 0px 10px var(--inverse-black-10);
+  box-shadow: 0px 0px 10px var(--color-black-10);
   border: 1px solid var(--inverse-dark);
   max-height: 250px;
   overflow: hidden;

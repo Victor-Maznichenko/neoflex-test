@@ -2,24 +2,22 @@
   /*
    === Colors ===
    */
-  --background: #eaeaea;
-  --base-text: #1c1c27;
+  --color-background: oklch(94% 0 90deg);
+  --color-text: oklch(23.161% 0.02 285deg);
 
-  --inverse-light: #ffffff;
-  --inverse-dark: #101010;
-  --inverse-black: #000000;
+  --color-white: oklch(100.0% 0 90deg);
+  --color-black: oklch(0.0% 0 0.0deg);
+  --color-dark: oklch(17.3% 0 90deg);
+  --color-gray: oklch(61% 0 90deg);
+  --color-gray-light: oklch(73.8% 0 90deg);
+  --color-red: oklch(65.4% 0.154 22.3deg);
+  --color-orange: oklch(79.5% 0.152 64.4deg);
+  --color-orange-light: oklch(87.7% 0.112 78.4deg);
+  --color-indigo: oklch(51% 0.23 276.97deg);
 
-  --gray-primary: #aaaaaa;
-  --gray-secondary: #838383;
-
-  --red: #df6464;                 
-  --orange-primary: #ffa542;
-  --orange-secondary: #ffce7f;
-  --indigo-light: #4f46e5;
-
-  --inverse-black-10: rgba(0, 0, 0, 0.1);
-  --inverse-black-25: rgba(0, 0, 0, 0.25);
-  --inverse-white-70: rgba(255, 255, 255, 0.7);
+  --color-black-10: oklch(0.0% 0 0deg / 0.1);
+  --color-black-25: oklch(0.0% 0 0deg / 0.25);
+  --color-white-70: oklch(100.0% 0 90deg / 0.7);
 
   /*
    === Layers ===
@@ -38,22 +36,21 @@
 
 /* === Dark Theme === */
 [data-theme='dark'] {
-  --background: #1c1c27;
-  --base-text: #e0e0e0;
+  --color-background: oklch(20% 0 90deg);
+  --color-text: oklch(76.839% 0.02 285deg);
 
-  --inverse-light: #1c1c27;
-  --inverse-dark: #ffffff;
-  --inverse-black: #ffffff;
+  --color-white: oklch(15% 0 90deg);
+  --color-black: oklch(100% 0 0deg);
+  --color-dark: oklch(82.7% 0 90deg);
+  --color-gray: oklch(39% 0 90deg);
+  --color-gray-light: oklch(76.839% 0.02 285deg);
 
-  --gray-primary: #555555;
-  --gray-secondary: #999999;
+  --color-red: oklch(44.6% 0.154 22.3deg);
+  --color-orange: oklch(69.5% 0.152 64.4deg);
+  --color-orange-light: oklch(78% 0.112 78.4deg);
+  --color-indigo: oklch(60% 0.23 276.97deg);
 
-  --red: #ff6b6b;                
-  --orange-primary: #ffa542;
-  --orange-secondary: #ffc875;
-  --indigo-light: #818cf8;
-
-  --inverse-black-10: rgba(255, 255, 255, 0.1);
-  --inverse-black-25: rgba(255, 255, 255, 0.25);
-  --inverse-white-70: rgba(0, 0, 0, 0.7);
+  --color-black-10: oklch(95% 0 0deg / 0.1);
+  --color-black-25: oklch(95% 0 0deg / 0.25);
+  --color-white-70: oklch(5% 0 90deg / 0.7);
 }

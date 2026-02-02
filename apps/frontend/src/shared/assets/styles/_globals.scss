@@ -15,8 +15,8 @@
 }
 
 ::selection {
-  background: var(--orange-secondary);
-  color: var(--base-text);
+  background: var(--color-orange-light);
+  color: var(--color-text);
 }
 
 html {
@@ -40,9 +40,9 @@ html {
 
 body {
   font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
-  background-color: var(--background);
+  background-color: var(--color-background);
   font-optical-sizing: auto;
-  color: var(--base-text);
+  color: var(--color-text);
   overflow-x: hidden;
   font-size: 17px;
 

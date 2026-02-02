@@ -8,8 +8,8 @@
   position: relative;
   border-radius: 30px;
   padding: 18px 28px 15px 19px;
-  background-color: var(--inverse-light);
-  box-shadow: 0px 0px 20px var(--inverse-black-10);
+  background-color: var(--color-white);
+  box-shadow: 0px 0px 20px var(--color-black-10);
 
   &__left {
     display: flex;
@@ -47,7 +47,7 @@
 
   &__info &__price {
     position: static;
-    color: var(--gray-primary);
+    color: var(--color-gray);
 
     @include to($mobile) {
       display: block;
@@ -58,13 +58,13 @@
     transition: filter var(--trans-fast);
     position: absolute;
     z-index: var(--z-over);
-    color: var(--red);
+    color: var(--color-red);
     font-size: 0;
     right: 28px;
     top: 18px;
 
     &:hover {
-      filter: drop-shadow(0px 0px 16px var(--red));
+      filter: drop-shadow(0px 0px 16px var(--color-red));
     }
   }
 

@@ -16,8 +16,8 @@
 
 .contained-yellow {
   padding: 4px;
-  background-color: var(--orange-secondary);
-  color: var(--inverse-light);
+  background-color: var(--color-orange-light);
+  color: var(--color-white);
   border-radius: 50%;
 }
 
@@ -25,10 +25,10 @@
   padding: 22px 40px;
   font-weight: 600;
   line-height: 21px;
-  color: var(--inverse-light);
+  color: var(--color-white);
   border-radius: 20px;
-  background-color: var(--inverse-dark);
-  box-shadow: 0px 0px 20px var(--inverse-black-25);
+  background-color: var(--color-dark);
+  box-shadow: 0px 0px 20px var(--color-dark-25);
 
   @include to($mobile) {
     padding: 22px 30px;
@@ -38,10 +38,10 @@
 .text {
   font-weight: 600;
   line-height: 21px;
-  color: var(--inverse-black);
+  color: var(--color-black);
   transition: filter var(--trans-fast);
 
   &:hover {
-    filter: drop-shadow(0px 0px 24px var(--indigo-light));
+    filter: drop-shadow(0px 0px 24px var(--color-indigo));
   }
 }

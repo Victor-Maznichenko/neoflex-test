@@ -14,7 +14,7 @@
   }
 
   &__end {
-    color: var(--gray-secondary);
+    color: var(--color-gray-light);
     column-gap: 45px;
   }
 
@@ -22,7 +22,7 @@
     transition: color var(--trans-fast);
 
     &:hover {
-      color: var(--inverse-dark);
+      color: var(--color-dark);
     }
   }
 }
