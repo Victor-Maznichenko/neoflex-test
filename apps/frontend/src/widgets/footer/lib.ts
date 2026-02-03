@@ -6,10 +6,6 @@ export const FOOTER_LINKS = [
     id: 0,
     list: [
       {
-        path: ROUTES.Favorites,
-        text: 'Избранное',
-      },
-      {
         path: ROUTES.Cart,
         text: 'Корзина',
       },

@@ -4,5 +4,4 @@ export const enum ROUTES {
   NotFound = '/*',
   Terms = '/terms',
   Contacts = '/contacts',
-  Favorites = '/favorites',
 }
