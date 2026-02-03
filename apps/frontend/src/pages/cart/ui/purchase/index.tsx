@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
 
+import { cartModel } from '@/entities/cart';
 import { formatCurrency } from '@/shared/lib';
 import { Button } from '@/shared/ui';
-
-import { model } from '../../model';
 
 import styles from './styles.module.scss';
 
@@ -13,7 +12,7 @@ interface PurchaseProps {
 }
 
 export const Purchase = ({ className }: PurchaseProps) => {
-  const [totalPrice, placeOrder] = useUnit([model.$totalPrice, model.placeOrder]);
+  const [totalPrice, placeOrder] = useUnit([cartModel.$totalPrice, cartModel.placeOrder]);
 
   return (
     <div className={clsx(styles.purchase, className)}>

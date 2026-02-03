@@ -1,8 +1,7 @@
 import { useUnit } from 'effector-react';
 
+import { cartModel } from '@/entities/cart';
 import { Button } from '@/shared/ui';
-
-import { model } from '../../model';
 
 import styles from './styles.module.scss';
 
@@ -13,7 +12,7 @@ interface CounterProps {
 }
 
 export const Counter = ({ id, value, maxValue }: CounterProps) => {
-  const [increment, decrement] = useUnit([model.increment, model.decrement]);
+  const [increment, decrement] = useUnit([cartModel.increment, cartModel.decrement]);
 
   return (
     <div className={styles.counter}>

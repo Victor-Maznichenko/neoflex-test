@@ -1,6 +1,9 @@
 import { useList, useUnit } from 'effector-react';
 
-import { CartItem, cartModel , Purchase} from '@/entities/cart';
+import { cartModel } from '@/entities/cart';
+
+import { CartItem } from './cart-item';
+import { Purchase } from './purchase';
 
 import styles from './styles.module.scss';
 

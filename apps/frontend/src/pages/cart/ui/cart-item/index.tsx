@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
 
+import { cartModel } from '@/entities/cart';
 import { formatCurrency } from '@/shared/lib';
 import { Icons } from '@/shared/ui';
 
-import { model } from '../../model';
 import { Counter } from '../counter';
 
 import styles from './styles.module.scss';
@@ -14,7 +14,7 @@ interface CartItemProps extends ProductCart {
 }
 
 export const CartItem = ({ className, id, img, title, price, quantity, totalQuantity }: CartItemProps) => {
-  const removeFromCart = useUnit(model.removeFromCart);
+  const removeFromCart = useUnit(cartModel.removeFromCart);
 
   return (
     <div className={clsx(styles.cartItem, className)}>
