@@ -39,7 +39,7 @@ const generateMockProducts = () => {
             updatedAt: createdAt.toISOString(),
             rate: (Math.random() * 5).toFixed(1),
             total: Math.floor(Math.random() * 50) + 1,
-            img: `${baseURL}/assets/${(i % 6) + 1}.png`,
+            img: `${baseURL}/assets/${(i % 6) + 1}.webp`,
             characteristics: {
                Гарантия: ["Есть", "Нет", "Частичная"][Math.floor(Math.random() * 3)],
                Производитель: `Бренд ${String.fromCharCode(65 + Math.floor(Math.random() * 26))}`,
