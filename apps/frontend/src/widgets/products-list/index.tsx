@@ -1,7 +1,5 @@
 import clsx from 'clsx';
-
 import { ProductCard } from '../product-card';
-
 import styles from './styles.module.scss';
 
 interface ProductsListProps {

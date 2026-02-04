@@ -5,5 +5,5 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 export const api = ky.create({
   prefixUrl: BASE_URL,
   timeout: 60000,
-  retry: 2,
+  retry: 2
 });

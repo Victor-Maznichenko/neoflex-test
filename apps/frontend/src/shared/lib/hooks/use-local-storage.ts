@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 type UseLocalStorageReturn = [
   itemValue: string | null,
   setItemValue: (value: string) => void,
-  removeItemValue: () => void,
+  removeItemValue: () => void
 ];
 
 interface UseLocalStorageParams {
@@ -19,7 +19,7 @@ export const useLocalStorage = ({ key, value }: UseLocalStorageParams): UseLocal
       setItemValue(v);
       localStorage.setItem(key, v ?? '');
     },
-    [key],
+    [key]
   );
 
   const removeLocalStorageItem = useCallback(() => {

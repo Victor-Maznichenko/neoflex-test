@@ -1,9 +1,6 @@
-import type { ReactNode} from 'react';
-
+import type { ReactNode } from 'react';
 import { useCallback, useEffect, useMemo } from 'react';
-
 import { useLocalStorage } from '@/shared/lib/hooks';
-
 import { ThemeContext } from './context';
 
 interface ThemeProviderProps {
@@ -18,7 +15,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   }, [theme, setTheme]);
 
   const contextValue = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
-  
+
   useEffect(() => {
     if (theme) {
       document.body.setAttribute('data-theme', theme);

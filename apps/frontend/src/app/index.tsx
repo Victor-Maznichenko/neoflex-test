@@ -1,11 +1,9 @@
 import clsx from 'clsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-import { Notifications } from '@/features';
-import { CartPage, HomePage, NotFoundPage } from '@/pages';
 import { ROUTES, ThemeProvider } from '@/shared/lib';
+import { CartPage, HomePage, NotFoundPage } from '@/pages';
 import { Footer, Header } from '@/widgets';
-
+import { Notifications } from '@/features';
 import styles from './styles.module.scss';
 
 export const App = () => (

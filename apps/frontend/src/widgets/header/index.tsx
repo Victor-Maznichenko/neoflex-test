@@ -1,11 +1,9 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
 import { Link } from 'react-router-dom';
-
-import { cartModel } from '@/entities/cart';
 import { ROUTES } from '@/shared/lib';
+import { cartModel } from '@/entities/cart';
 import { Badge, Icons, Logo, ThemeSwitcher } from '@/shared/ui';
-
 import styles from './styles.module.scss';
 
 interface HeaderProps {

@@ -1,8 +1,7 @@
+import type { NotificationType } from '../lib/constants/general';
 import clsx from 'clsx';
 import { createEvent, createStore, sample } from 'effector';
 import { delay } from 'patronum';
-
-import type { NotificationType } from '../lib/constants/general';
 
 interface Toast {
   className?: string;
@@ -22,14 +21,14 @@ const clean = createEvent();
 
 const createdToast = sample({
   clock: show,
-  fn: (toast) => ({ id: Date.now(), ...toast }) as Toast,
+  fn: (toast) => ({ id: Date.now(), ...toast }) as Toast
 });
 
 sample({
   clock: createdToast,
   source: $queueToasts,
   fn: (queueToasts, toast) => [...queueToasts, toast],
-  target: $queueToasts,
+  target: $queueToasts
 });
 
 // Hide after timeout
@@ -38,7 +37,7 @@ const scheduleHide = delay(createdToast, 1000);
 sample({
   clock: scheduleHide,
   fn: ({ id }) => id,
-  target: hide,
+  target: hide
 });
 
 // Hide toast
@@ -57,19 +56,19 @@ sample({
 
     return queueToastsCopied;
   },
-  target: $queueToasts,
+  target: $queueToasts
 });
 
 sample({
   clock: delayedHide,
   source: $queueToasts,
   fn: (queueToasts, id) => queueToasts.filter((toast) => toast.id !== id),
-  target: $queueToasts,
+  target: $queueToasts
 });
 
 export const toastModel = {
   show,
   hide,
   clean,
-  $queueToasts,
+  $queueToasts
 };

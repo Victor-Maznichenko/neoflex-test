@@ -1,7 +1,5 @@
 import type { ComponentProps, ElementType } from 'react';
-
 import clsx from 'clsx';
-
 import styles from './styles.module.scss';
 
 interface BadgePropsOwnProps<E extends ElementType = ElementType> {

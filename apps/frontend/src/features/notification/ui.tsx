@@ -1,19 +1,15 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
 import { createPortal } from 'react-dom';
-
 import { toastModel } from '@/shared/config';
 import { Icons } from '@/shared/ui';
-
 import { NotificationIcons, notificationRoot } from './lib';
-
 import styles from './styles.module.scss';
 
 export const Notifications = () => {
   const [queueToasts, hide] = useUnit([toastModel.$queueToasts, toastModel.hide]);
 
   if (!notificationRoot) {
-     
     console.error('Notification root not found');
     return null;
   }
@@ -33,6 +29,6 @@ export const Notifications = () => {
         );
       })}
     </div>,
-    notificationRoot,
+    notificationRoot
   );
 };

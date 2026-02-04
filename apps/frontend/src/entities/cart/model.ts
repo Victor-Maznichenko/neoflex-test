@@ -1,7 +1,6 @@
 import { createEvent, createStore, sample } from 'effector';
 import { persist } from 'effector-storage/local';
 import { reshape, throttle } from 'patronum';
-
 import { toastModel } from '@/shared/config';
 import { NotificationType } from '@/shared/lib';
 
@@ -9,16 +8,16 @@ const $productsList = createStore<ProductCart[]>([]);
 const { $isEmpty } = reshape({
   source: $productsList,
   shape: {
-    $isEmpty: (array) => !array.length,
-  },
+    $isEmpty: (array) => !array.length
+  }
 });
 persist({ store: $productsList, key: 'cartList' });
 
 const { $cartItemsCount } = reshape({
   source: $productsList,
   shape: {
-    $cartItemsCount: ({ length }) => length,
-  },
+    $cartItemsCount: ({ length }) => length
+  }
 });
 
 const $totalPrice = $productsList.map((items) => items.reduce((sum, item) => sum + item.price * item.quantity, 0));
@@ -28,7 +27,7 @@ const placeOrder = createEvent();
 // eslint-disable-next-line no-alert
 placeOrder.watch(() => alert('Покупка!'));
 
-/* 
+/*
   ===============
   Cart Actions
   ==================
@@ -44,7 +43,7 @@ sample({
   clock: increment,
   source: $productsList,
   fn: (products, id) => products.map((p) => (p.id === id ? { ...p, quantity: p.quantity + 1 } : p)),
-  target: $productsList,
+  target: $productsList
 });
 
 // Decrement
@@ -61,7 +60,7 @@ sample({
 
     return products.filter((p) => p.id !== id);
   },
-  target: $productsList,
+  target: $productsList
 });
 
 // Add item
@@ -69,14 +68,14 @@ const notAddedToCart = sample({
   clock: debouncedAddToCart,
   source: $productsList,
   filter: (products, addedProduct) => products.some(({ id }) => id === addedProduct.id),
-  fn: (productsList, addedProduct) => ({ productsList, addedProduct }),
+  fn: (productsList, addedProduct) => ({ productsList, addedProduct })
 });
 
 const addedToCart = sample({
   clock: debouncedAddToCart,
   source: $productsList,
   filter: (products, addedProduct) => !products.some(({ id }) => id === addedProduct.id),
-  fn: (productsList, addedProduct) => ({ productsList, addedProduct }),
+  fn: (productsList, addedProduct) => ({ productsList, addedProduct })
 });
 
 sample({
@@ -86,28 +85,28 @@ sample({
     {
       ...addedProduct,
       quantity: 1,
-      totalQuantity: 10,
-    },
+      totalQuantity: 10
+    }
   ],
-  target: [$productsList, productAdded],
+  target: [$productsList, productAdded]
 });
 
 sample({
   clock: addedToCart,
   fn: () => ({
     message: 'Корзина успешно обновленна!',
-    type: NotificationType.Success,
+    type: NotificationType.Success
   }),
-  target: toastModel.show,
+  target: toastModel.show
 });
 
 sample({
   clock: notAddedToCart,
   fn: () => ({
     message: 'Товар уже есть в корзине!',
-    type: NotificationType.Fail,
+    type: NotificationType.Fail
   }),
-  target: toastModel.show,
+  target: toastModel.show
 });
 
 // Remove item
@@ -115,7 +114,7 @@ sample({
   clock: removeFromCart,
   source: $productsList,
   fn: (products, id) => products.filter((p) => p.id !== id),
-  target: $productsList,
+  target: $productsList
 });
 
 export const model = {

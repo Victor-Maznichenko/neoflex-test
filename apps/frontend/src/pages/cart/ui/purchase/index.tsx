@@ -1,10 +1,8 @@
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
-
-import { cartModel } from '@/entities/cart';
 import { formatCurrency } from '@/shared/lib';
+import { cartModel } from '@/entities/cart';
 import { Button } from '@/shared/ui';
-
 import styles from './styles.module.scss';
 
 interface PurchaseProps {
@@ -20,7 +18,7 @@ export const Purchase = ({ className }: PurchaseProps) => {
         <span>ИТОГО</span>
         <span>{formatCurrency(totalPrice, { isCurrencyBefore: true })}</span>
       </div>
-      <Button className={styles.purchase__button} variant="contained-black" onClick={placeOrder}>
+      <Button className={styles.purchase__button} variant='contained-black' onClick={placeOrder}>
         Перейти к оформлению
       </Button>
     </div>

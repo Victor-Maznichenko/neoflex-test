@@ -9,7 +9,7 @@ interface UseIntersectionObserverOptions {
 
 export const useIntersectionObserver = <R extends HTMLElement>({
   callback,
-  options,
+  options
 }: UseIntersectionObserverOptions) => {
   const ref = useRef<R>(null);
 
@@ -19,7 +19,7 @@ export const useIntersectionObserver = <R extends HTMLElement>({
         callback(entry, observer);
       });
     },
-    [callback],
+    [callback]
   );
 
   useEffect(() => {

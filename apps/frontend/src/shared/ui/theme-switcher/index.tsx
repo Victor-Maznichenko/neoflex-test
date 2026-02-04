@@ -1,12 +1,8 @@
-import type {ComponentProps, MouseEvent} from 'react';
-
-import {   use } from 'react';
-
+import type { ComponentProps, MouseEvent } from 'react';
+import { use } from 'react';
 import { ThemeContext } from '@/shared/lib';
-
 import { Button } from '../button';
 import { Icons } from '../icons';
-
 import styles from './styles.module.scss';
 
 const getThemeSwitchAnimation = (x: number, y: number, isReverse?: boolean) => {
@@ -16,13 +12,13 @@ const getThemeSwitchAnimation = (x: number, y: number, isReverse?: boolean) => {
   return {
     keyframes: {
       clipPath: isReverse ? clipPath.reverse() : clipPath,
-      zIndex: [1, 1],
+      zIndex: [1, 1]
     },
     animation: {
       duration: 500,
       easing: 'cubic-bezier(.76,.32,.29,.99)',
-      pseudoElement: isReverse ? '::view-transition-old(root)' : '::view-transition-new(root)',
-    },
+      pseudoElement: isReverse ? '::view-transition-old(root)' : '::view-transition-new(root)'
+    }
   };
 };
 
@@ -48,7 +44,7 @@ export const ThemeSwitcher = ({ onClick, ...props }: ThemeSwitcherProps) => {
   };
 
   return (
-    <Button className={styles.btn} variant="unstyled" onClick={handleClick} {...props}>
+    <Button className={styles.btn} variant='unstyled' onClick={handleClick} {...props}>
       {isLightTheme ? <Icons.Sun /> : <Icons.Moon />}
     </Button>
   );

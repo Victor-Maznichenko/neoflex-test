@@ -7,5 +7,5 @@ interface ThemeContextData {
 
 export const ThemeContext = createContext<ThemeContextData>({
   theme: null,
-  toggleTheme: () => {},
+  toggleTheme: () => {}
 });

@@ -1,8 +1,6 @@
 import { useUnit } from 'effector-react';
-
 import { cartModel } from '@/entities/cart';
 import { Button } from '@/shared/ui';
-
 import styles from './styles.module.scss';
 
 interface CounterProps {

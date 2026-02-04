@@ -3,5 +3,5 @@ export const enum ROUTES {
   Cart = '/cart',
   NotFound = '/*',
   Terms = '/terms',
-  Contacts = '/contacts',
+  Contacts = '/contacts'
 }

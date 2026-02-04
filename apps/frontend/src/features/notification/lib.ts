@@ -3,7 +3,7 @@ import { Icons } from '@/shared/ui';
 
 export const NotificationIcons = {
   [NotificationType.Success]: Icons.Success,
-  [NotificationType.Fail]: Icons.Fail,
+  [NotificationType.Fail]: Icons.Fail
 };
 
 export interface NotificationParams {
@@ -13,7 +13,7 @@ export interface NotificationParams {
 
 export const initialData = {
   type: NotificationType.Fail,
-  message: 'Сообщение',
+  message: 'Сообщение'
 };
 
 export const notificationRoot = document.getElementById('notification');
