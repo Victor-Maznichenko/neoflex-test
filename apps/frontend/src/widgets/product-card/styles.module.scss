@@ -35,6 +35,7 @@
 
   &__price {
     color: var(--color-orange);
+    flex-shrink: 0;
   }
 
   &__rate {
